@@ -1,3 +1,6 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -80,34 +83,7 @@ alt = '${element.description}'/>
   ''
 );
 
-// imagesGallery.addEventListener('click', event => {
-//   event.preventDefault();
-
-//   if (event.target.nodeName !== 'IMG') {
-//     return;
-//   }
-
-//   let escapeGalleryHandler;
-
-//   const instance = basicLightbox.create(
-//     `
-//       <img src="${event.target.dataset.source}" alt="${event.target.alt}">
-//     `,
-//     {
-//       onShow: () => {
-//         escapeGalleryHandler = event => {
-//           if (event.key === 'Escape') {
-//             instance.close();
-//           }
-//         };
-
-//         document.addEventListener('keydown', escapeGalleryHandler);
-//       },
-//       onClose: () => {
-//         document.removeEventListener('keydown', escapeGalleryHandler);
-//       },
-//     }
-//   );
-
-//   instance.show();
-// });
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
